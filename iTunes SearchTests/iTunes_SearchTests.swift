@@ -14,9 +14,23 @@ class iTunes_SearchTests: XCTestCase {
     func testSuccessfulSearch() {
         
         let searchExpectation = expectation(description: "Waiting for results.")
-        
+        let goodResultData = """
+                   {
+                     "resultCount": 2,
+                     "results": [
+                           {
+                             "trackName": "GarageBand",
+                             "artistName": "Apple",
+                           },
+                           {
+                             "trackName": "Garage Virtual Drumset Band",
+                             "artistName": "Nexogen Private Limited",
+                           }
+                       ]
+                   }
+                   """.data(using: .utf8)!
         let searchResultsController = SearchResultController()
-        let mockAPI = MockAPI()
+        let mockAPI = MockAPI(data: goodResultData)
         searchResultsController.performSearch(for: "Tweetbot", resultType: .software, session: mockAPI) { result in
             
             switch result {
@@ -40,9 +54,24 @@ class iTunes_SearchTests: XCTestCase {
     func testFailedSearch() {
           
           let searchExpectation = expectation(description: "Waiting for results.")
-          
+        // missing comma
+          let corruptData = """
+                     {
+                       "resultCount": 2,
+                       "results": [
+                             {
+                               "trackName": "GarageBand",
+                               "artistName": "Apple",
+                             }
+                             {
+                               "trackName": "Garage Virtual Drumset Band",
+                               "artistName": "Nexogen Private Limited",
+                             }
+                         ]
+                     }
+                     """.data(using: .utf8)!
           let searchResultsController = SearchResultController()
-          let mockAPI = MockAPI()
+        let mockAPI = MockAPI(data: corruptData)
           searchResultsController.performSearch(for: "Tweetbot", resultType: .software, session: mockAPI) { result in
               
               switch result {
@@ -66,9 +95,23 @@ class iTunes_SearchTests: XCTestCase {
     func testMockSuccessSearch() {
           
           let searchExpectation = expectation(description: "Waiting for results.")
-          
+          let goodResultData = """
+                     {
+                       "resultCount": 2,
+                       "results": [
+                             {
+                               "trackName": "GarageBand",
+                               "artistName": "Apple",
+                             },
+                             {
+                               "trackName": "Garage Virtual Drumset Band",
+                               "artistName": "Nexogen Private Limited",
+                             }
+                         ]
+                     }
+                     """.data(using: .utf8)!
           let searchResultsController = SearchResultController()
-          let mockAPI = MockAPI()
+        let mockAPI = MockAPI(data: goodResultData)
           searchResultsController.performSearch(for: "Tweetbot", resultType: .software, session: mockAPI) { result in
               
               switch result {
