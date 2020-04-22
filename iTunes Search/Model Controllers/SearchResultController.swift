@@ -58,7 +58,7 @@ class SearchResultController {
     
     func performSearch(for searchTerm: String,
                        resultType: ResultType,
-                       session: URLSession,
+                       session: URLSession = URLSession.shared, // given a default value
                        completion: @escaping (Result<[SearchResult], PerformSearchError>) -> Void) {
         
         // Creating the URL components.

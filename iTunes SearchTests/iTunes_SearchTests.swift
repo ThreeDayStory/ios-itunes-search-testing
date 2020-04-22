@@ -16,7 +16,7 @@ class iTunes_SearchTests: XCTestCase {
         let searchExpectation = expectation(description: "Waiting for results.")
         
         let searchResultsController = SearchResultController()
-        searchResultsController.performSearch(for: "Tweetbot", resultType: .software) { result in
+        searchResultsController.performSearch(for: "Tweetbot", resultType: .software, session: URLSession.shared) { result in
             
             switch result {
             case .success(let result):
