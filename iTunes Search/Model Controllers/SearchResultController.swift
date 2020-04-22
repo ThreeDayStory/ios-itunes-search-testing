@@ -58,6 +58,7 @@ class SearchResultController {
     
     func performSearch(for searchTerm: String,
                        resultType: ResultType,
+                       session: URLSession,
                        completion: @escaping (Result<[SearchResult], PerformSearchError>) -> Void) {
         
         // Creating the URL components.
@@ -80,7 +81,7 @@ class SearchResultController {
         request.httpMethod = HTTPMethod.get.rawValue
         
         // Fetching the information from the network
-        let dataTask = URLSession.shared.dataTask(with: request) { (possibleData, _, error) in
+        let dataTask = session.dataTask(with: request) { (possibleData, _, error) in
             
             // Make sure the data exists.
             if let error = error { NSLog("Error fetching data: \(error)") }
