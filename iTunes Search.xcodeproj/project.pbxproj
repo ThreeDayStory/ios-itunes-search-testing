@@ -18,6 +18,7 @@
 		46BF02472117E37000A24DE5 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF02462117E36F00A24DE5 /* HTTPMethod.swift */; };
 		9510CD59244FDF4D00D5CC2C /* iTunes_SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9510CD58244FDF4D00D5CC2C /* iTunes_SearchTests.swift */; };
 		9510CD61244FE6B100D5CC2C /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9510CD60244FE6B100D5CC2C /* MockAPI.swift */; };
+		9510CD63244FEA1900D5CC2C /* URLSession+NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9510CD62244FEA1900D5CC2C /* URLSession+NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		9510CD58244FDF4D00D5CC2C /* iTunes_SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunes_SearchTests.swift; sourceTree = "<group>"; };
 		9510CD5A244FDF4D00D5CC2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9510CD60244FE6B100D5CC2C /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
+		9510CD62244FEA1900D5CC2C /* URLSession+NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				46BF02402117DC5200A24DE5 /* SearchResultController.swift */,
 				9510CD60244FE6B100D5CC2C /* MockAPI.swift */,
+				9510CD62244FEA1900D5CC2C /* URLSession+NetworkController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46BF02452117E36400A24DE5 /* ResultType.swift in Sources */,
+				9510CD63244FEA1900D5CC2C /* URLSession+NetworkController.swift in Sources */,
 				46BF02412117DC5200A24DE5 /* SearchResultController.swift in Sources */,
 				46BF02472117E37000A24DE5 /* HTTPMethod.swift in Sources */,
 				9510CD61244FE6B100D5CC2C /* MockAPI.swift in Sources */,

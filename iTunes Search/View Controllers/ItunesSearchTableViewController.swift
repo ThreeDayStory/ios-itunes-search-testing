@@ -36,7 +36,7 @@ class ItunesSearchTableViewController: UITableViewController, UISearchBarDelegat
             break
         }
         
-        searchResultController.performSearch(for: searchTerm, resultType: resultType) { result in
+        searchResultController.performSearch(for: searchTerm, resultType: resultType, session: URLSession.shared) { result in
             switch result {
             case.success(let results): // this is being passed in from the URLSession
                 DispatchQueue.main.async {

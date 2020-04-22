@@ -67,7 +67,6 @@ class SearchResultController {
                 completion(.failure(.invalidJSON(data)))
             }
         }
-//        dataTask.resume()
     }
     
     let baseURL = URL(string: "https://itunes.apple.com/search")!

@@ -8,8 +8,27 @@
 
 import Foundation
 
-
-
-class MockAPI {
-    
+class MockAPI: NetworkController {
+    func perform(request: URLRequest, completion: @escaping (Data?, Error?) -> Void) {
+        DispatchQueue.global().async {
+            
+            let goodResultData = """
+            {
+              "resultCount": 2,
+              "results": [
+                    {
+                      "trackName": "GarageBand",
+                      "artistName": "Apple",
+                    },
+                    {
+                      "trackName": "Garage Virtual Drumset Band",
+                      "artistName": "Nexogen Private Limited",
+                    }
+                ]
+            }
+            """.data(using: .utf8)!
+            
+            completion(goodResultData, nil)
+        }
+    }
 }
