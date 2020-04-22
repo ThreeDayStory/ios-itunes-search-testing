@@ -23,7 +23,7 @@ class SearchResultController {
     
     func performSearch(for searchTerm: String,
                        resultType: ResultType,
-                       session: URLSession = NetworkController, 
+                       session: NetworkController,
                        completion: @escaping (Result<[SearchResult], PerformSearchError>) -> Void) {
         
         // Creating the URL components.
@@ -46,10 +46,11 @@ class SearchResultController {
         request.httpMethod = HTTPMethod.get.rawValue
         
         // Fetching the information from the network
-        let dataTask = session.dataTask(with: request) { (possibleData, _, error) in
+        
+        session.perform(request: request) { (possibleData, possibleError) in
             
             // Make sure the data exists.
-            if let error = error { NSLog("Error fetching data: \(error)") }
+            if let error = possibleError { NSLog("Error fetching data: \(error)") }
             guard let data = possibleData else {
                 completion(.failure(.noDataReturned))
                 return
@@ -66,7 +67,7 @@ class SearchResultController {
                 completion(.failure(.invalidJSON(data)))
             }
         }
-        dataTask.resume()
+//        dataTask.resume()
     }
     
     let baseURL = URL(string: "https://itunes.apple.com/search")!
